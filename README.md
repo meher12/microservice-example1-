@@ -22,7 +22,7 @@
      * To show limits-service.properties content: http://localhost:8888/limits-service/default
  
 # 3. Add micro-currency-exchange-service:  Centratized configuration Client #  
-  * server.port=
+  * server.port=8000
   1.  add dependency config client (spring cloud config)  
    
   
