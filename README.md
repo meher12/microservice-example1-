@@ -24,8 +24,9 @@
 # 3. Add micro-currency-exchange-service:  Centratized configuration Client #  
   * server.port=8000
   1. add dependency config client (spring cloud config)  
-  2. create a rest controller CurrencyExchangeController and add private Environment environment to add property "environment.getProperty("local.server.port")"
-  3. create a new instance of Currency Exchange Service by:
+  2. create a rest controller CurrencyExchangeController
+  3. Setting up Dynamic Port in the the Response by add private Environment environment to add property "environment.getProperty("local.server.port")" from package "org.springframework.core.env.Environment"
+  4. create a new instance of Currency Exchange Service by:
      * Duplicate the default service and rename it
      * Run as > run configurations > duplicate > Arguments > VM arguments: -Dserver.port=8001
      * Add url in browser :http://localhost:8001/currency-exchange-service/from/USD/to/INR
