@@ -10,7 +10,9 @@
   1.  add dependency config Server (spring cloud config)
   2. add name server in application.properties:
   spring.application.name=spring-cloud-config-servers
-  3. create folder git-localconfig-repo:
+  3. Connect Spring Cloud Config Server to Local Git Repository
+     * create folder git-localconfig-repo
+     * add spring.cloud.config.server.git.uri=file:///home/meher/j2eews/microservices-project/git-localconfig-repo in application.properties
      * create  file limits-service.properties in "git-localconfig-repo" folder
      * To show limits-service.properties content: http://localhost:8888/limits-service/default
  
