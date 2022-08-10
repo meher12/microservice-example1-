@@ -1,0 +1,52 @@
+### Eclipse micro-limits-service ### 
+micro-limits-service/.classpath  
+micro-limits-service/.editorconfig  
+micro-limits-service/.factorypath  
+micro-limits-service/.gitattributes  
+micro-limits-service/.project  
+micro-limits-service/.settings/  
+micro-limits-service/bin/  
+micro-limits-service/target/ 
+### Maven ###
+micro-limits-service/target/
+micro-limits-service/.mvn/ 
+micro-limits-service/pom.xml.tag
+micro-limits-service/pom.xml.releaseBackup
+micro-limits-service/pom.xml.versionsBackup
+micro-limits-service/pom.xml.next
+micro-limits-service/release.properties
+micro-limits-service/dependency-reduced-pom.xml
+micro-limits-service/buildNumber.properties
+micro-limits-service/.mvn/timing.properties
+micro-limits-service/.mvn/wrapper/maven-wrapper.jar
+
+### Eclipse micro-config-server ### 
+micro-config-server/.classpath  
+micro-config-server/.editorconfig  
+micro-config-server/.factorypath  
+micro-config-server/.gitattributes  
+micro-config-server/.project  
+micro-config-server/.settings/  
+micro-config-server/bin/  
+micro-config-server/target/ 
+### Maven ###
+micro-config-server/target/
+micro-config-server/.mvn/ 
+micro-config-server/pom.xml.tag
+micro-config-server/pom.xml.releaseBackup
+micro-config-server/pom.xml.versionsBackup
+micro-config-server/pom.xml.next
+micro-config-server/release.properties
+micro-config-server/dependency-reduced-pom.xml
+micro-config-server/buildNumber.properties
+micro-config-server/.mvn/timing.properties
+micro-config-server/.mvn/wrapper/maven-wrapper.jar
+
+### Eclipse git-localconfig-repo ### 
+git-localconfig-repo/.project  
+git-localconfig-repo/.git
+git-localconfig-repo/.git/
+ 
+
+
+
