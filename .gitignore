@@ -42,10 +42,29 @@ micro-config-server/buildNumber.properties
 micro-config-server/.mvn/timing.properties
 micro-config-server/.mvn/wrapper/maven-wrapper.jar
 
-### Eclipse git-localconfig-repo ### 
-git-localconfig-repo/.project  
-git-localconfig-repo/.git
-git-localconfig-repo/.git/
+### Eclipse micro-currency-exchange-service ### 
+micro-currency-exchange-service/.classpath  
+micro-currency-exchange-service/.editorconfig  
+micro-currency-exchange-service/.factorypath  
+micro-currency-exchange-service/.gitattributes  
+micro-currency-exchange-service/.project  
+micro-currency-exchange-service/.settings/  
+micro-currency-exchange-service/bin/  
+micro-currency-exchange-service/target/ 
+### Maven ###
+micro-currency-exchange-service/target/
+micro-currency-exchange-service/.mvn/ 
+micro-currency-exchange-service/pom.xml.tag
+micro-currency-exchange-service/pom.xml.releaseBackup
+micro-currency-exchange-service/pom.xml.versionsBackup
+micro-currency-exchange-service/pom.xml.next
+micro-currency-exchange-service/release.properties
+micro-currency-exchange-service/dependency-reduced-pom.xml
+micro-currency-exchange-service/buildNumber.properties
+micro-currency-exchange-service/.mvn/timing.properties
+micro-currency-exchange-service/.mvn/wrapper/maven-wrapper.jar
+
+
  
 
 

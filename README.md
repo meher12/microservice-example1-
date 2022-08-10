@@ -20,6 +20,10 @@
      * add spring.cloud.config.server.git.uri=file:///home/meher/j2eews/microservices-project/git-localconfig-repo in application.properties
      * create  file limits-service.properties in "git-localconfig-repo" folder
      * To show limits-service.properties content: http://localhost:8888/limits-service/default
+ 
+# 3. Add micro-currency-exchange-service:  Centratized configuration Client#  
+  * server.port=
+  1.  add dependency config client (spring cloud config)  
    
   
  
