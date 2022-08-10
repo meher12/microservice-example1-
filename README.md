@@ -8,7 +8,7 @@
      * spring.config.import=optional:configserver:http://localhost:8888 and spring.application.name==limits-service
      * put url http://localhost:8888/limits-service/default
   6. Configuring Profiles for Limits Service:
-     * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties
+     * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties in git-localconfig-repo switch with Config server
   
 # 2. Add micro-config-server: Centratized configuration Server#
   * server.port=8888
