@@ -12,8 +12,8 @@
   6. Configuring Profiles for Limits Service:
      * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties in git-localconfig-repo switch with Config server:
        - Url:
-            http://localhost:8888/limits-service/default
-            http://localhost:8888/limits-service/qa
+            http://localhost:8888/limits-service/default \
+            http://localhost:8888/limits-service/qa \
             http://localhost:8888/limits-service/dev
        - /limits-service/src/main/resources/application.properties Modified:
             ```
