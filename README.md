@@ -11,7 +11,7 @@
      * put url http://localhost:8888/limits-service/default
   6. Configuring Profiles for Limits Service:
      * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties in git-localconfig-repo switch with Config server:
-       - Url:
+       - Url: \
             http://localhost:8888/limits-service/default \
             http://localhost:8888/limits-service/qa \
             http://localhost:8888/limits-service/dev
@@ -154,4 +154,28 @@
             eureka.client.fetch-registry=false
          ```
       - start the application and hit below url, you will see the UI console of Naming Server: http://localhost:8761/
-   2. Connect Currency Conversion & Currency Exchange Microservices: 
+   2. Connect Currency Conversion & Currency Exchange Microservices to Eureka: 
+      - In /currency-conversion-service/src/main/resources/application.properties add new Line
+         ```
+          eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+         ```
+      - /currency-conversion-service/pom.xml add new dependency
+
+         ```
+               <dependency>
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+               </dependency>
+         ```
+      - /currency-exchange-service/pom.xml add new dependency
+
+         ```
+            <dependency>
+               <groupId>org.springframework.cloud</groupId>
+               <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            </dependency>
+         ```
+      - /currency-exchange-service/src/main/resources/application.properties add new Line
+      ```
+       eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+      ```
