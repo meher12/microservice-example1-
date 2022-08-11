@@ -86,6 +86,28 @@ micro-conversion-exchange-service/buildNumber.properties
 micro-conversion-exchange-service/.mvn/timing.properties
 micro-conversion-exchange-service/.mvn/wrapper/maven-wrapper.jar
 
+### Naming Server ### 
+*/.classpath  
+*/.editorconfig  
+*/.factorypath  
+*/.gitattributes  
+*/.project  
+*/.settings/  
+*/bin/  
+*/target/ 
+### Maven ###
+*/target/
+*/.mvn/ 
+*/pom.xml.tag
+*/pom.xml.releaseBackup
+*/pom.xml.versionsBackup
+*/pom.xml.next
+*/release.properties
+*/dependency-reduced-pom.xml
+*/buildNumber.properties
+*/.mvn/timing.properties
+*/.mvn/wrapper/maven-wrapper.jar
+
 
  
 
