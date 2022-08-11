@@ -41,14 +41,22 @@
   3. Invoking Currency Exchange from Currency Conversion Microservice:
      - NB: RestTemplate: is a Spring framework that allows communication between a client and a REST server with HTTP requests.
      * add RestTemplate in "calculateCurrencyConversion(...)" method
-       -  Map<String, String> uriVariables = new HashMap<>();
+       ```  Map<String, String> uriVariables = new HashMap<>();
           uriVariables.put("from", from);
           uriVariables.put("to", to);
           ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
                 "http://localhost:8000/currency-exchange-service/from/{from}/to/{to}", CurrencyConversion.class,
                 uriVariables);
           CurrencyConversion currencyConversion = responseEntity.getBody();
+       ```   
       - url : http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
+  4. Using Feign REST Client for Service Invocation:   
+     * /currency-conversion-service/pom.xml add new dependency:
+		``` <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		 </dependency>  
+		 ```
    
   
  
