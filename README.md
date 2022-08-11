@@ -10,7 +10,33 @@
      * spring.config.import=optional:configserver:http://localhost:8888 and spring.application.name==limits-service
      * put url http://localhost:8888/limits-service/default
   6. Configuring Profiles for Limits Service:
-     * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties in git-localconfig-repo switch with Config server
+     * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties in git-localconfig-repo switch with Config server:
+       - Url:
+            http://localhost:8888/limits-service/default
+            http://localhost:8888/limits-service/qa
+            http://localhost:8888/limits-service/dev
+       - /limits-service/src/main/resources/application.properties Modified:
+            ```
+            spring.profiles.active=dev
+            spring.cloud.config.profile=dev
+
+            spring.application.name=limits-service
+            spring.config.import=optional:configserver:http://localhost:8888
+
+            limits-service.minimum=3
+            limits-service.maximum=997
+            ```
+
+       - /git-localconfig-repo/limits-service-dev.properties New
+            ```
+            limits-service.minimum=4
+            limits-service.maximum=996
+            ```
+       - /git-localconfig-repo/limits-service-qa.properties New
+            ```
+            limits-service.minimum=6
+            limits-service.maximum=993
+            ```
   
 ## 2. Add micro-config-server: Centratized configuration Server ##
   * server.port=8888
@@ -97,9 +123,10 @@
       * Url for feign: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
    - WITH feign IS VERY ESAY TO USE A REST CLEINT THAN THE restTemplate
 
-## 5. Eureka Understand Naming Server(Service Registry) and Setting up Eureka Naming Server ##
+## 5. Eureka  ##
+   1. Understand Naming Server(Service Registry) and Setting up Eureka Naming Server
    * server.port=8761
-   1. In the past example we had hardcoded the port in the currency-exchange-service-2 while setting the Feign:
+      - In the past example we had hardcoded the port in the currency-exchange-service-2 while setting the Feign:
 
          ```
             @FeignClient(name="currency-exchange-service", url="localhost:8000")
@@ -127,3 +154,4 @@
             eureka.client.fetch-registry=false
          ```
       - start the application and hit below url, you will see the UI console of Naming Server: http://localhost:8761/
+   2. Connect Currency Conversion & Currency Exchange Microservices: 
