@@ -30,6 +30,8 @@
      * Duplicate the default service and rename it
      * Run as > run configurations > duplicate > Arguments > VM arguments: -Dserver.port=8001
      * Add url in browser :http://localhost:8001/currency-exchange-service/from/USD/to/INR
+  5. Configure JPA and Initialized Data:
+     * If you are Spring Boot >=2.5.0, You would need to configure this in application.properties spring.jpa.defer-datasource-initialization=true to insert data in data.sql
    
   
  
