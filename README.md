@@ -59,37 +59,37 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		 </dependency>  
 		 ```
+
      * in MicroConversionExchangeServiceApplication class add the annotation @EnableFeignClients
      * create CurrencyExchangeProxy classand add annotation @FeignClient(name="currency-exchange-service", url="localhost:8000")
 
          ```
-         @GetMapping("/currency-exchange/from/{from}/to/{to}")
-	  public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
-	 ```
+          @GetMapping("/currency-exchange/from/{from}/to/{to}")
+	       public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
+	      ```
        
      * CurrencyConversionController.java Modified to:
      
       ```
         @Autowired
-	private CurrencyExchangeProxy proxy;
+	     private CurrencyExchangeProxy proxy;
 	
-	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
-	public CurrencyConversion calculateCurrencyConversionFeign(
-			@PathVariable String from,
-			@PathVariable String to,
-			@PathVariable BigDecimal quantity
-			) {
-				
-		CurrencyConversion currencyConversion = proxy.retrieveExchangeValue(from, to);
-		
-		return new CurrencyConversion(currencyConversion.getId(), 
-				from, to, quantity, 
-				currencyConversion.getConversionMultiple(), 
-				quantity.multiply(currencyConversion.getConversionMultiple()), 
-				currencyConversion.getEnvironment() + " " + "feign");
-		
-	}
-	
+        @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+        public CurrencyConversion calculateCurrencyConversionFeign(
+            @PathVariable String from,
+            @PathVariable String to,
+            @PathVariable BigDecimal quantity
+            ) {
+               
+         CurrencyConversion currencyConversion = proxy.retrieveExchangeValue(from, to);
+         
+         return new CurrencyConversion(currencyConversion.getId(), 
+               from, to, quantity, 
+               currencyConversion.getConversionMultiple(), 
+               quantity.multiply(currencyConversion.getConversionMultiple()), 
+               currencyConversion.getEnvironment() + " " + "feign");
+         
+         }
       ``` 
   
     * Url: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
