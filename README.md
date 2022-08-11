@@ -98,6 +98,7 @@
    - WITH feign IS VERY ESAY TO USE A REST CLEINT THAN THE restTemplate
 
 ## 5. Eureka Understand Naming Server and Setting up Eureka Naming Server ##
+   * server.port=8761
    1. In the past example we had hardcoded the port in the currency-exchange-service-2 while setting the Feign:
 
          ```
@@ -113,3 +114,14 @@
             </dependency>
          ``` 
       - Add @EnableEurekaServer to the main class.
+      - In application.properties:
+      ```
+         spring.application.name=naming-server
+         server.port=8761
+         #No spring.config.import property has been defined
+         spring.config.import=optional:configserver:
+
+         #Dont'n need this registry server
+         eureka.client.register-with-eureka=false
+         eureka.client.fetch-registry=false
+      ```
