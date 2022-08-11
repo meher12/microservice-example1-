@@ -40,7 +40,7 @@
   2. Creating a service for currency conversion (bean, controller), URL: http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
   3. Invoking Currency Exchange from Currency Conversion Microservice:
      - NB: RestTemplate: is a Spring framework that allows communication between a client and a REST server with HTTP requests.
-     * add RestTemplate in "calculateCurrencyConversion(...)" method
+     * add RestTemplate in "calculateCurrencyConversion(...)" method:
        ```  
           Map<String, String> uriVariables = new HashMap<>();
           uriVariables.put("from", from);
@@ -59,6 +59,34 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		 </dependency>  
 		 ```
-   
+     * in MicroConversionExchangeServiceApplication class add the annotation @EnableFeignClients
+     * create CurrencyExchangeProxy class:
+       -  @FeignClient(name="currency-exchange-service", url="localhost:8000")
+       ```
+       @GetMapping("/currency-exchange/from/{from}/to/{to}")
+	public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
+       ```
+     * CurrencyConversionController.java Modified to:
+      ```
+      @Autowired
+	private CurrencyExchangeProxy proxy;
+	
+	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+	public CurrencyConversion calculateCurrencyConversionFeign(
+			@PathVariable String from,
+			@PathVariable String to,
+			@PathVariable BigDecimal quantity
+			) {
+				
+		CurrencyConversion currencyConversion = proxy.retrieveExchangeValue(from, to);
+		
+		return new CurrencyConversion(currencyConversion.getId(), 
+				from, to, quantity, 
+				currencyConversion.getConversionMultiple(), 
+				quantity.multiply(currencyConversion.getConversionMultiple()), 
+				currencyConversion.getEnvironment() + " " + "feign");
+		
+	}
+      ``` 
   
- 
+    * Url: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
