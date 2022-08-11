@@ -39,7 +39,14 @@
   1. Setting up Currency Conversion Microservice (add dependency config client (spring cloud config) )
   2. Creating a service for currency conversion (bean, controller), URL: http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
   3. Invoking Currency Exchange from Currency Conversion Microservice:
-     * add "new RestTemplate().getForEntity("http://localhost:8000/currency-exchange-service/from/{from}/to/{to}", CurrencyConversion.class)" in "calculateCurrencyConversion(...)" method;
+     * add RestTemplate in "calculateCurrencyConversion(...)" method
+       -  Map<String, String> uriVariables = new HashMap<>();
+        uriVariables.put("from", from);
+        uriVariables.put("to", to);
+        ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
+                "http://localhost:8000/currency-exchange-service/from/{from}/to/{to}", CurrencyConversion.class,
+                uriVariables);
+        CurrencyConversion currencyConversion = responseEntity.getBody();
    
   
  
