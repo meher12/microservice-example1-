@@ -1,6 +1,6 @@
 # Microservices and RESTful web services with Spring cloud and Spring Boot: #
 
-## 1. Add micro-limits-service:  Centratized configuration Client ##
+## 1. Add micro-limits-service:  Centratized configuration Client 
   * server.port=8181
   1.  add dependency config client (spring cloud config)
   2. create rest controller
