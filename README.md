@@ -162,10 +162,10 @@
       - /currency-conversion-service/pom.xml add new dependency
 
          ```
-               <dependency>
+            <dependency>
                   <groupId>org.springframework.cloud</groupId>
                   <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-               </dependency>
+            </dependency>
          ```
       - /currency-exchange-service/pom.xml add new dependency
 
