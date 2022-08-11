@@ -115,13 +115,14 @@
          ``` 
       - Add @EnableEurekaServer to the main class.
       - In application.properties:
-      ```
-         spring.application.name=naming-server
-         server.port=8761
-         #No spring.config.import property has been defined
-         spring.config.import=optional:configserver:
 
-         #Dont'n need this registry server
-         eureka.client.register-with-eureka=false
-         eureka.client.fetch-registry=false
-      ```
+         ```
+            spring.application.name=naming-server
+            server.port=8761
+            #No spring.config.import property has been defined
+            spring.config.import=optional:configserver:
+
+            #Dont'n need this registry server
+            eureka.client.register-with-eureka=false
+            eureka.client.fetch-registry=false
+         ```
