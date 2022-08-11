@@ -93,3 +93,4 @@
       ``` 
   
       * Url: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
+   - WITH feign IS VERY ESAY TO USE A REST CLEINT THAN THE restTemplate
