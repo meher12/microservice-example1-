@@ -32,6 +32,9 @@
      * Add url in browser :http://localhost:8001/currency-exchange-service/from/USD/to/INR
   5. Configure JPA and Initialized Data:
      * If you are Spring Boot >=2.5.0, You would need to configure this in application.properties spring.jpa.defer-datasource-initialization=true to insert data in data.sql
+     * Create a JPA Repository
+     
+# 4. Add micro-conversion-exchange-service:  Centratized configuration Client #  
    
   
  
