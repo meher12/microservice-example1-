@@ -64,6 +64,28 @@ micro-currency-exchange-service/buildNumber.properties
 micro-currency-exchange-service/.mvn/timing.properties
 micro-currency-exchange-service/.mvn/wrapper/maven-wrapper.jar
 
+### Eclipse micro-conversion-exchange-service ### 
+micro-conversion-exchange-service/.classpath  
+micro-conversion-exchange-service/.editorconfig  
+micro-conversion-exchange-service/.factorypath  
+micro-conversion-exchange-service/.gitattributes  
+micro-conversion-exchange-service/.project  
+micro-conversion-exchange-service/.settings/  
+micro-conversion-exchange-service/bin/  
+micro-conversion-exchange-service/target/ 
+### Maven ###
+micro-conversion-exchange-service/target/
+micro-conversion-exchange-service/.mvn/ 
+micro-conversion-exchange-service/pom.xml.tag
+micro-conversion-exchange-service/pom.xml.releaseBackup
+micro-conversion-exchange-service/pom.xml.versionsBackup
+micro-conversion-exchange-service/pom.xml.next
+micro-conversion-exchange-service/release.properties
+micro-conversion-exchange-service/dependency-reduced-pom.xml
+micro-conversion-exchange-service/buildNumber.properties
+micro-conversion-exchange-service/.mvn/timing.properties
+micro-conversion-exchange-service/.mvn/wrapper/maven-wrapper.jar
+
 
  
 
