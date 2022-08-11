@@ -1,92 +1,4 @@
-### Eclipse micro-limits-service ### 
-micro-limits-service/.classpath  
-micro-limits-service/.editorconfig  
-micro-limits-service/.factorypath  
-micro-limits-service/.gitattributes  
-micro-limits-service/.project  
-micro-limits-service/.settings/  
-micro-limits-service/bin/  
-micro-limits-service/target/ 
-### Maven ###
-micro-limits-service/target/
-micro-limits-service/.mvn/ 
-micro-limits-service/pom.xml.tag
-micro-limits-service/pom.xml.releaseBackup
-micro-limits-service/pom.xml.versionsBackup
-micro-limits-service/pom.xml.next
-micro-limits-service/release.properties
-micro-limits-service/dependency-reduced-pom.xml
-micro-limits-service/buildNumber.properties
-micro-limits-service/.mvn/timing.properties
-micro-limits-service/.mvn/wrapper/maven-wrapper.jar
-
-### Eclipse micro-config-server ### 
-micro-config-server/.classpath  
-micro-config-server/.editorconfig  
-micro-config-server/.factorypath  
-micro-config-server/.gitattributes  
-micro-config-server/.project  
-micro-config-server/.settings/  
-micro-config-server/bin/  
-micro-config-server/target/ 
-### Maven ###
-micro-config-server/target/
-micro-config-server/.mvn/ 
-micro-config-server/pom.xml.tag
-micro-config-server/pom.xml.releaseBackup
-micro-config-server/pom.xml.versionsBackup
-micro-config-server/pom.xml.next
-micro-config-server/release.properties
-micro-config-server/dependency-reduced-pom.xml
-micro-config-server/buildNumber.properties
-micro-config-server/.mvn/timing.properties
-micro-config-server/.mvn/wrapper/maven-wrapper.jar
-
-### Eclipse micro-currency-exchange-service ### 
-micro-currency-exchange-service/.classpath  
-micro-currency-exchange-service/.editorconfig  
-micro-currency-exchange-service/.factorypath  
-micro-currency-exchange-service/.gitattributes  
-micro-currency-exchange-service/.project  
-micro-currency-exchange-service/.settings/  
-micro-currency-exchange-service/bin/  
-micro-currency-exchange-service/target/ 
-### Maven ###
-micro-currency-exchange-service/target/
-micro-currency-exchange-service/.mvn/ 
-micro-currency-exchange-service/pom.xml.tag
-micro-currency-exchange-service/pom.xml.releaseBackup
-micro-currency-exchange-service/pom.xml.versionsBackup
-micro-currency-exchange-service/pom.xml.next
-micro-currency-exchange-service/release.properties
-micro-currency-exchange-service/dependency-reduced-pom.xml
-micro-currency-exchange-service/buildNumber.properties
-micro-currency-exchange-service/.mvn/timing.properties
-micro-currency-exchange-service/.mvn/wrapper/maven-wrapper.jar
-
-### Eclipse micro-conversion-exchange-service ### 
-micro-conversion-exchange-service/.classpath  
-micro-conversion-exchange-service/.editorconfig  
-micro-conversion-exchange-service/.factorypath  
-micro-conversion-exchange-service/.gitattributes  
-micro-conversion-exchange-service/.project  
-micro-conversion-exchange-service/.settings/  
-micro-conversion-exchange-service/bin/  
-micro-conversion-exchange-service/target/ 
-### Maven ###
-micro-conversion-exchange-service/target/
-micro-conversion-exchange-service/.mvn/ 
-micro-conversion-exchange-service/pom.xml.tag
-micro-conversion-exchange-service/pom.xml.releaseBackup
-micro-conversion-exchange-service/pom.xml.versionsBackup
-micro-conversion-exchange-service/pom.xml.next
-micro-conversion-exchange-service/release.properties
-micro-conversion-exchange-service/dependency-reduced-pom.xml
-micro-conversion-exchange-service/buildNumber.properties
-micro-conversion-exchange-service/.mvn/timing.properties
-micro-conversion-exchange-service/.mvn/wrapper/maven-wrapper.jar
-
-### Naming Server ### 
+### Eclipse ### 
 */.classpath  
 */.editorconfig  
 */.factorypath  
@@ -95,6 +7,7 @@ micro-conversion-exchange-service/.mvn/wrapper/maven-wrapper.jar
 */.settings/  
 */bin/  
 */target/ 
+*/.git
 ### Maven ###
 */target/
 */.mvn/ 
