@@ -1,4 +1,6 @@
-# 1. Add micro-limits-service:  Centratized configuration Client #
+# Microservices and RESTful web services with Spring cloud and Spring Boot: #
+
+## 1. Add micro-limits-service:  Centratized configuration Client ##
   * server.port=8181
   1.  add dependency config client (spring cloud config)
   2. create rest controller
@@ -10,7 +12,7 @@
   6. Configuring Profiles for Limits Service:
      * spring.profiles.active=dev AND spring.cloud.config.profile=dev,  run url : http://localhost:8181/limits to get minumun and maximum values of limits-service-dev.properties in git-localconfig-repo switch with Config server
   
-# 2. Add micro-config-server: Centratized configuration Server #
+## 2. Add micro-config-server: Centratized configuration Server ##
   * server.port=8888
   1.  add dependency config Server (spring cloud config)
   2. add name server in application.properties:
@@ -21,7 +23,7 @@
      * create  file limits-service.properties in "git-localconfig-repo" folder
      * To show limits-service.properties content: http://localhost:8888/limits-service/default
  
-# 3. Add micro-currency-exchange-service:  Centratized configuration Client #  
+## 3. Add micro-currency-exchange-service:  Centratized configuration Client ##  
   * server.port=8000
   1. add dependency config client (spring cloud config)  
   2. create a rest controller CurrencyExchangeController
@@ -34,7 +36,7 @@
      * If you are Spring Boot >=2.5.0, You would need to configure this in application.properties spring.jpa.defer-datasource-initialization=true to insert data in data.sql
      * Create a JPA Repository
      
-# 4. Add micro-conversion-exchange-service:  Centratized configuration Client #  
+## 4. Add micro-conversion-exchange-service:  Centratized configuration Client ##  
   * server.port=8100
   1. Setting up Currency Conversion Microservice (add dependency config client (spring cloud config) )
   2. Creating a service for currency conversion (bean, controller), URL: http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
