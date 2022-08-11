@@ -97,7 +97,7 @@
       * Url for feign: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
    - WITH feign IS VERY ESAY TO USE A REST CLEINT THAN THE restTemplate
 
-## 5. Eureka Understand Naming Server and Setting up Eureka Naming Server ##
+## 5. Eureka Understand Naming Server(Service Registry) and Setting up Eureka Naming Server ##
    * server.port=8761
    1. In the past example we had hardcoded the port in the currency-exchange-service-2 while setting the Feign:
 
@@ -126,3 +126,4 @@
             eureka.client.register-with-eureka=false
             eureka.client.fetch-registry=false
          ```
+      - start the application and hit below url, you will see the UI console of Naming Server: http://localhost:8761/
