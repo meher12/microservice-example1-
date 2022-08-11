@@ -61,14 +61,19 @@
 		 ```
      * in MicroConversionExchangeServiceApplication class add the annotation @EnableFeignClients
      * create CurrencyExchangeProxy class:
-       -  @FeignClient(name="currency-exchange-service", url="localhost:8000")
+       -  add annotation @FeignClient(name="currency-exchange-service", url="localhost:8000")
+
        ```
-       @GetMapping("/currency-exchange/from/{from}/to/{to}")
-	public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
+       
+         @GetMapping("/currency-exchange/from/{from}/to/{to}")
+	 public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
+	
        ```
+       
      * CurrencyConversionController.java Modified to:
+     
       ```
-      @Autowired
+        @Autowired
 	private CurrencyExchangeProxy proxy;
 	
 	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
