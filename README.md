@@ -35,6 +35,9 @@
      * Create a JPA Repository
      
 # 4. Add micro-conversion-exchange-service:  Centratized configuration Client #  
+  * server.port=8100
+  1. Setting up Currency Conversion Microservice (add dependency config client (spring cloud config) )
+  2. Creating a service for currency conversion (bean, controller)
    
   
  
