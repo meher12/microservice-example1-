@@ -112,3 +112,4 @@
                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
             </dependency>
          ``` 
+      - Add @EnableEurekaServer to the main class.
