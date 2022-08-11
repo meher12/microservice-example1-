@@ -37,7 +37,9 @@
 # 4. Add micro-conversion-exchange-service:  Centratized configuration Client #  
   * server.port=8100
   1. Setting up Currency Conversion Microservice (add dependency config client (spring cloud config) )
-  2. Creating a service for currency conversion (bean, controller)
+  2. Creating a service for currency conversion (bean, controller), URL: http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
+  3. Invoking Currency Exchange from Currency Conversion Microservice:
+     * add "new RestTemplate().getForEntity("http://localhost:8000/currency-exchange-service/from/{from}/to/{to}", CurrencyConversion.class)" in "calculateCurrencyConversion(...)" method;
    
   
  
