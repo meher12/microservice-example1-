@@ -60,15 +60,12 @@
 		 </dependency>  
 		 ```
      * in MicroConversionExchangeServiceApplication class add the annotation @EnableFeignClients
-     * create CurrencyExchangeProxy class:
-       -  add annotation @FeignClient(name="currency-exchange-service", url="localhost:8000")
+     * create CurrencyExchangeProxy classand add annotation @FeignClient(name="currency-exchange-service", url="localhost:8000")
 
-       ```
-       
+         ```
          @GetMapping("/currency-exchange/from/{from}/to/{to}")
-	 public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
-	
-       ```
+	  public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
+	 ```
        
      * CurrencyConversionController.java Modified to:
      
@@ -92,6 +89,7 @@
 				currencyConversion.getEnvironment() + " " + "feign");
 		
 	}
+	
       ``` 
   
     * Url: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
