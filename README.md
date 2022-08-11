@@ -99,15 +99,19 @@
 
 ## 5. Eureka Understand Naming Server and Setting up Eureka Naming Server 
     - In the past example we had hardcoded the port in the currency-exchange-service-2 while setting the Feign:
+
     ```
-    @FeignClient(name="currency-exchange-service", url="localhost:8000")
+     @FeignClient(name="currency-exchange-service", url="localhost:8000")
+
     ```
     - If there are multiple instances of currency-exchange-service then we will not be able to call other instances. To solve this issue, we will go with Naming Server or Service Registry, where all the instances of the microservices will be registered. So this Naming Server will also be responsible for Load Balancing at server side.
     - So create a new spring boot application from Spring Initializr. We will call it – naming-server. Add below dependency to it: Eureka Server
     - In pom.xml we can see these:
+
      ```
       <dependency>
          <groupId>org.springframework.cloud</groupId>
          <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
       </dependency>
+      
      ``` 
