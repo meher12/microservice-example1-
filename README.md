@@ -50,7 +50,7 @@
                 uriVariables);
           CurrencyConversion currencyConversion = responseEntity.getBody();
        ```   
-      - url : http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
+      - url for rest template: http://localhost:8100/currency-conversion-service/from/USD/to/INR/quantity/10
   4. Using Feign REST Client for Service Invocation:   
      * /currency-conversion-service/pom.xml add new dependency:
 		``` 
@@ -92,5 +92,5 @@
          }
       ``` 
   
-      * Url: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
+      * Url for feign: http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
    - WITH feign IS VERY ESAY TO USE A REST CLEINT THAN THE restTemplate
