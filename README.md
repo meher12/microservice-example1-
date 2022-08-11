@@ -41,12 +41,12 @@
   3. Invoking Currency Exchange from Currency Conversion Microservice:
      * add RestTemplate in "calculateCurrencyConversion(...)" method
        -  Map<String, String> uriVariables = new HashMap<>();
-        uriVariables.put("from", from);
-        uriVariables.put("to", to);
-        ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
+          uriVariables.put("from", from);
+          uriVariables.put("to", to);
+          ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
                 "http://localhost:8000/currency-exchange-service/from/{from}/to/{to}", CurrencyConversion.class,
                 uriVariables);
-        CurrencyConversion currencyConversion = responseEntity.getBody();
+          CurrencyConversion currencyConversion = responseEntity.getBody();
    
   
  
