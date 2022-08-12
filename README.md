@@ -216,7 +216,7 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		 </dependency>
       ```
-      Change service-id to lowerCase: \
+      Change service-id to lowerCase: 
       ```
        spring.cloud.gateway.discovery.locator.lower-case-service-id=true
       ```
@@ -224,3 +224,32 @@
       http://localhost:8765/currency-exchange-service/currency-exchange-service/from/USD/to/INR \
       http://localhost:8765/currency-conversion-service/currency-conversion-service/from/USD/to/INR/quantity/10 \
       http://localhost:8765/currency-conversion-service/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+   6. Exploring (building a custom route) Routes with Spring Cloud Gateway:
+      * Add a config class : ApiGatewayConfiguration in api-gateway project
+      ```
+         @Configuration
+         public class ApiGatewayConfiguration {
+
+            @Bean
+            public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
+               return builder.routes().route(p -> p.path("/get") // http://localhost:8765/get
+                        .filters(f -> f.addRequestHeader("MyHeader", "MyURI").addRequestParameter("Param", "MyValue"))
+                        .uri("http://httpbin.org:80"))
+                        .route(p -> p.path("/currency-exchange-service/**").uri("lb://currency-exchange-service"))
+                        .route(p -> p.path("/currency-conversion-service/**").uri("lb://currency-conversion-service"))
+                        .route(p -> p.path("/currency-conversion-feign/**").uri("lb://currency-conversion-service"))
+                        .route(p -> p.path("/currency-conversion-new/**")
+                                       .filters(f -> f.rewritePath("/currency-conversion-new/(?<segment>.*)",
+                                                "/currency-conversion-feign/${segment}"))
+                                       .uri("lb://currency-conversion-service"))
+                        .build();
+            }
+         }
+      ```
+      * /api-gateway/src/main/resources/application.properties Commented :
+
+        ```
+         #spring.cloud.gateway.discovery.locator.enabled=true
+         #spring.cloud.gateway.discovery.locator.lowerCaseServiceId=true
+        ```
