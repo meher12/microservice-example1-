@@ -188,7 +188,7 @@
       - => LoadBalancer work fine url to check (refresh the browser to see the server port of currency-exchange-service is changed each time): http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
    4. Setting up Spring Cloud API Gateway :
       * Create project api-gateway with those dependency : Config Client (Spring Cloud Config), Eureka Discovery Client (Spring Cloud Discovery), Gateway (Spring Cloud Routing)
-        - add in the application.properties:
+        - Add in application.properties file:
          ```
          spring.cloud.config.enabled=false
          spring.application.name=api-gateway
@@ -197,3 +197,28 @@
          #Connect api-gateway to Eureka Server
          eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
          ```
+   5. Enabling Discovery Locator with Eureka for Spring Cloud Gateway:
+      * Setup those urls: \
+        http://localhost:8765/CURRENCY-EXCHANGE-SERVICE/currency-exchange-service/from/USD/to/INR  \
+        http://localhost:8765/CURRENCY-CONVERSION-SERVICE/currency-conversion-service/from/USD/to/INR/quantity/10  \
+        http://localhost:8765/CURRENCY-CONVERSION-SERVICE/currency-conversion-feign/from/USD/to/INR/quantity/10 
+      * in application.properties file:  
+      ```
+       #DiscoveryClient Route Definition Locator:
+       #The Gateway can be configured to create routes based on services registered with a DiscoveryClient compatible service registry.
+       #To enable this, set
+       spring.cloud.gateway.discovery.locator.enabled=true
+      ```
+      #Make sure a DiscoveryClient is in pom.xml
+      ```
+       <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		 </dependency>
+      ```
+      Change service-id to lowerCase: \
+       spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+      Lower Case URL: \
+      http://localhost:8765/currency-exchange-service/currency-exchange-service/from/USD/to/INR \
+      http://localhost:8765/currency-conversion-service/currency-conversion-service/from/USD/to/INR/quantity/10 \
+      http://localhost:8765/currency-conversion-service/currency-conversion-feign/from/USD/to/INR/quantity/10
