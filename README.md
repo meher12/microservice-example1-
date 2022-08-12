@@ -127,7 +127,7 @@
             @FeignClient(name="currency-exchange-service", url="localhost:8000")
          ```
       - If there are multiple instances of currency-exchange-service then we will not be able to call other instances. To solve this issue, we will go with Naming Server or Service Registry, where all the instances of the microservices will be registered. So this Naming Server will also be responsible for Load Balancing at server side.
-      - So create a new spring boot application from Spring Initializr. We will call it – naming-server. Add below dependency to it: Eureka Server
+      - So create a new spring boot application from Spring Initializr. We will call it – naming-server. Add below dependency to it: Eureka Server (Spring Cloud Discovery)
       - In pom.xml we can see these:
          ```
             <dependency>
@@ -186,3 +186,14 @@
       ```
       - Run currency-exchange-service in port 8000 and 8001
       - => LoadBalancer work fine url to check (refresh the browser to see the server port of currency-exchange-service is changed each time): http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
+   4. Setting up Spring Cloud API Gateway :
+      * Create project api-gateway with those dependency : Config Client (Spring Cloud Config), Eureka Discovery Client (Spring Cloud Discovery), Gateway (Spring Cloud Routing)
+        - add in the application.properties:
+         ```
+         spring.cloud.config.enabled=false
+         spring.application.name=api-gateway
+         server.port=8765
+
+         #Connect api-gateway to Eureka Server
+         eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+         ```
