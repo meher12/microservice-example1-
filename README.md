@@ -98,12 +98,7 @@
        
      * CurrencyConversionController.java Modified to:
      
-      ```
-        @Autowired
-	     private CurrencyExchangeProxy proxy;
-	
-        @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
-        public CurrencyConversion calculateCurrencyConversionFeign(
+      ```http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10ionFeign(
             @PathVariable String from,
             @PathVariable String to,
             @PathVariable BigDecimal quantity
@@ -179,3 +174,15 @@
       ```
        eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
       ```
+   3. Load Balancing with Eureka, Feign & Spring Cloud LoadBalancer:
+      - Just update CurrencyExchangeProxy.java interface in currency-conversion-service service:
+      from
+      ```
+        @FeignClient(name="currency-exchange-service", url="localhost:8000")
+      ```
+      to
+      ```
+        @FeignClient(name="currency-exchange-service")
+      ```
+      - Run currency-exchange-service in port 8000 and 8001
+      - => LoadBalancer work fine url to check (refresh the browser to see the server port of currency-exchange-service is changed each time): http://localhost:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
