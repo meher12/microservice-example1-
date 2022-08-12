@@ -253,3 +253,8 @@
          #spring.cloud.gateway.discovery.locator.enabled=true
          #spring.cloud.gateway.discovery.locator.lowerCaseServiceId=true
         ```
+      * Custom Routes:
+      http://localhost:8765/currency-exchange-service/from/USD/to/INR  \
+      http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/10  \
+      http://localhost:8765/currency-conversion-feign/from/USD/to/INR/quantity/10  \
+      http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10  
