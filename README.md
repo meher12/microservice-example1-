@@ -360,7 +360,7 @@
         resilience4j.circuitbreaker.instances.default.failure-rate-threshold=90
        ``` 
    4. Exploring Rate Limiting and BulkHead Features of Resilience4j
-      1. *** Rate limiting is an imperative technique to prepare your API for scale and establish high availability and reliability of your service ***
+      1.  Rate limiting is an imperative technique to prepare your API for scale and establish high availability and reliability of your service 
          * @RateLimiter(name="default") 
          ```
             #The number of permissions available during one limit refresh period
@@ -377,7 +377,7 @@
             watch -n 0.1 curl http://localhost:8000/sample-api
          ```
          * In browser we can see the result after two refresh we get a error because we configure the Rate limiting 'limit-for-period=2 ' and 'limit-for-period=2 '
-      2. *** bulkhead pattern that can be used to limit the number of concurrent execution: in this example 10 req ***
+      2.  bulkhead pattern that can be used to limit the number of concurrent execution: in this example 10 req 
          * @Bulkhead(name="sample-api") 
          * In application.properties file: 
          ```
