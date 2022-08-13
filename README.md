@@ -287,22 +287,22 @@
       In Console : n.g.microservice.logger.LoggingFilter    : Path of the request received -> /currency-exchange-service/from/USD/to/INR
 ## 6. Resilience4j ##
    1. Getting started with Circuit Breaker - Resilience4j
-    * In micro-currency-exchange-service project add new dependencies:
-     ```
-      <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
+      * In micro-currency-exchange-service project add new dependencies:
+         ```
+            <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-aop</artifactId>
+            </dependency>
 
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-spring-boot2</artifactId>
-		</dependency>
-     ```
-     * Add new CircuitBreakerController class:
-      ```
-      @GetMapping("/sample-api")
-      public String sampleApi() {
-        return "Sample Api";
-      }
-     ```
+            <dependency>
+               <groupId>io.github.resilience4j</groupId>
+               <artifactId>resilience4j-spring-boot2</artifactId>
+            </dependency>
+         ```
+      * Add new CircuitBreakerController class:
+         ```
+            @GetMapping("/sample-api")
+            public String sampleApi() {
+            return "Sample Api";
+            }
+         ```
