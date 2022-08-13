@@ -253,8 +253,35 @@
          #spring.cloud.gateway.discovery.locator.enabled=true
          #spring.cloud.gateway.discovery.locator.lowerCaseServiceId=true
         ```
-      * Custom Routes:
+      * Custom Routes:  \
       http://localhost:8765/currency-exchange-service/from/USD/to/INR  \
       http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/10  \
       http://localhost:8765/currency-conversion-feign/from/USD/to/INR/quantity/10  \
-      http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10  
+      http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10 
+      
+   7. Implementing Spring Cloud Gateway Logging Filter:
+      * Create class LoggingFilter.java in logger package:
+      ```
+         import org.slf4j.Logger;
+         import org.slf4j.LoggerFactory;
+         import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+         import org.springframework.cloud.gateway.filter.GlobalFilter;
+         import org.springframework.stereotype.Component;
+         import org.springframework.web.server.ServerWebExchange;
+
+         import reactor.core.publisher.Mono;
+
+         @Component
+         public class LoggingFilter implements GlobalFilter {
+
+            private Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
+
+            @Override
+            public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+               logger.info("Path of the request received -> {}", exchange.getRequest().getPath());
+               return chain.filter(exchange);
+            }
+
+         }
+      ```
+      In Console : n.g.microservice.logger.LoggingFilter    : Path of the request received -> /currency-exchange-service/from/USD/to/INR
