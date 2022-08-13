@@ -330,6 +330,7 @@
          ```
             resilience4j.retry.instances.sample-api.max-attempts=5
             resilience4j.retry.instances.sample-api.waitDuration=1s
+            resilience4j.retry.instances.sample-api.enableExponentialBackoff=true
          ```
          In console we see 5 attempts: 
            ```
@@ -339,4 +340,22 @@
             INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
             INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
          ```
-         With "fallbackMethod" In browser (http://localhost:8000/sample-api) we see: "fallback-response" message instead of the default message error 
+         With "fallbackMethod" In browser (http://localhost:8000/sample-api) we see: "fallback-response" message instead of the default message error.
+
+   3. Playing with Circuit Breaker Features of Resilience4j: 
+      In terminal:
+      ```
+         curl http://localhost:8000/sample-api
+         watch curl http://localhost:8000/sample-api
+         watch -n 0.1 curl http://localhost:8000/sample-api
+      ```
+       CircuitBreakerController class:
+       ```
+        //@Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
+          @CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
+       ```
+       failureRateThreshold: Configures the failure rate threshold in percentage. \ When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls.
+       In application.properties file: 
+       ```
+        resilience4j.circuitbreaker.instances.default.failure-rate-threshold=90
+       ``` 
