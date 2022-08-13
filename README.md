@@ -376,4 +376,5 @@
          watch curl http://localhost:8000/sample-api
          watch -n 0.1 curl http://localhost:8000/sample-api
       ```
+      * In browser we can see the result after two refresh we get a error because we configure the Rate limiting 'limit-for-period=2 ' and 'limit-for-period=2 '
 
