@@ -354,8 +354,26 @@
         //@Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
           @CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
        ```
-       failureRateThreshold: Configures the failure rate threshold in percentage. \ When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls. \
-       In application.properties file: 
+       - FailureRateThreshold: Configures the failure rate threshold in percentage. \ When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls. \
+       - In application.properties file: 
        ```
         resilience4j.circuitbreaker.instances.default.failure-rate-threshold=90
        ``` 
+   4. Exploring Rate Limiting and BulkHead Features of Resilience4j
+      * *** Rate limiting is an imperative technique to prepare your API for scale and establish high availability and reliability of your service ***
+      * @RateLimiter(name="default") 
+      ```
+         #The number of permissions available during one limit refresh period
+         #For example, you want to restrict the calling rate of some methods to be not higher than 2 req/ms.
+         resilience4j.ratelimiter.instances.default.limit-for-period=2 
+
+         #The period of a limit refresh. After each period the rate limiter sets its permissions count back to the limitForPeriod value
+         resilience4j.ratelimiter.instances.default.limit-refresh-period=10s
+      ```
+      * In terminal:
+      ```
+         curl http://localhost:8000/sample-api
+         watch curl http://localhost:8000/sample-api
+         watch -n 0.1 curl http://localhost:8000/sample-api
+      ```
+
