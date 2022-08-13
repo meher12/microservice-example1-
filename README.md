@@ -354,7 +354,7 @@
         //@Retry(name = "sample-api", fallbackMethod = "hardcodedResponse")
           @CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
        ```
-       failureRateThreshold: Configures the failure rate threshold in percentage. \ When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls.
+       failureRateThreshold: Configures the failure rate threshold in percentage. \ When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls. \
        In application.properties file: 
        ```
         resilience4j.circuitbreaker.instances.default.failure-rate-threshold=90
