@@ -306,3 +306,37 @@
             return "Sample Api";
             }
          ```
+   2. Playing with Resilience4j - Retry and Fallback Methods:
+      - Can we return a fallback response if a service is down ?
+      * CircuitBreakerController class:
+        
+         ```
+            private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
+
+            @GetMapping("/sample-api")
+            @Retry(name="sample-api", fallbackMethod = "hardcodedResponse")
+            public String sampleApi() {
+               logger.info("Sample api call received");
+               ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/some-dummy-url",
+                        String.class);
+               return forEntity.getBody();
+               
+            }
+            public String hardcodedResponse(Exception ex) {
+               return "fallback-response";
+            }
+         ```
+         In application.properties: 
+         ```
+            resilience4j.retry.instances.sample-api.max-attempts=5
+            resilience4j.retry.instances.sample-api.waitDuration=1s
+         ```
+         In console we see 5 attempts: 
+           ```
+            INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
+            INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
+            INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
+            INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
+            INFO 19676 --- [nio-8000-exec-1] n.g.m.c.CircuitBreakerController         : Sample api call received
+         ```
+         With "fallbackMethod" In browser (http://localhost:8000/sample-api) we see: "fallback-response" message instead of the default message error 
