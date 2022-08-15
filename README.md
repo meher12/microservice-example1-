@@ -413,8 +413,8 @@
          spring.sleuth.sampler.probability=1.0
       ```   
    * Connecting Currency Conversion Microservice & API Gateway with Zipkin  
-   * Creating Container Image for Currency Exchange Microservice :
-     1. \
+   2. Creating Container Image for Currency Exchange Microservice :
+     1. 
      ```
       <plugin>
                   <groupId>org.springframework.boot</groupId>
@@ -428,7 +428,23 @@
          </plugin>
       ``` 
       2. Run as > maven build > Goals: spring-boot:build-image -DskipTests  
-      3.   \
+      3.   
       ```
       docker run -p 8000:8000 maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
       ```
+   3. Getting Started with Docker Compose - Currency Exchange Microservice
+   ```
+   version: "3.7"
+
+   services:
+      currency-exchange:
+      image: maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
+      mem_limit: 700m
+      ports:
+         - "8000:8000"
+      networks:
+         - currency-network
+
+   networks:
+   currency-network:
+   ```
