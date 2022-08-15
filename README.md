@@ -389,7 +389,7 @@
 ###   1. Zipkin :
 
       *. Launching Zipkin Container using Docker:
-       ``
+       ```
          docker run -p 9411:9411 openzipkin/zipkin:latest
        ```
       *. Connecting Currency Exchange Microservice with Zipkin:  \
