@@ -412,4 +412,23 @@
       ```
          spring.sleuth.sampler.probability=1.0
       ```   
-   * Connecting Currency Conversion Microservice & API Gateway with Zipkin      
+   * Connecting Currency Conversion Microservice & API Gateway with Zipkin  
+   * Creating Container Image for Currency Exchange Microservice :
+     1. 
+     ```
+      <plugin>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-maven-plugin</artifactId>
+                  <configuration>
+                     <image>
+                           <name>maldini12/msv2-${project.artifactId}:${project.version}</name>
+                     </image>
+                     <pullPolicy>IF_NOT_PRESENT</pullPolicy>
+                  </configuration>
+         </plugin>
+      ``` 
+      2. Run as > maven build > Goals: spring-boot:build-image -DskipTests  
+      3.  
+      ```
+      docker run -p 8000:8000 maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
+      ```
