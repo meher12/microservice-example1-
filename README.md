@@ -415,6 +415,7 @@
    * Connecting Currency Conversion Microservice & API Gateway with Zipkin  
    2. Creating Container Image for Currency Exchange Microservice :
      1. 
+     \
      ```
       <plugin>
                   <groupId>org.springframework.boot</groupId>
@@ -427,8 +428,10 @@
                   </configuration>
          </plugin>
       ``` 
-      2. Run as > maven build > Goals: spring-boot:build-image -DskipTests  
-      3.   
+
+      2.  Run as > maven build > Goals: spring-boot:build-image -DskipTests  
+      3.  
+      \ 
       ```
       docker run -p 8000:8000 maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
       ```
