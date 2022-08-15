@@ -389,9 +389,9 @@
 ###   1. Zipkin :
 
       *. Launching Zipkin Container using Docker:
-       ```
+      ```
          docker run -p 9411:9411 openzipkin/zipkin:latest
-       ```
+      ```
       *. Connecting Currency Exchange Microservice with Zipkin:  \
           Spring Sleuth: It will give a unique ID to each request through our microservices
       ```
@@ -410,6 +410,6 @@
          </dependency>	
       ```
          application.properties:
-         ```
+      ```
          spring.sleuth.sampler.probability=1.0
-         ```
+      ```
