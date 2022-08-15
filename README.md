@@ -449,3 +449,5 @@
    networks:
    currency-network:
    ```
+   4. Running Eureka Naming Server with Docker Compose:
+      - Create image and naming-server service in docker-compose file 

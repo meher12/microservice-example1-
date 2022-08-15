@@ -1,13 +1,26 @@
 version: "3.7"
 
 services:
-   currency-exchange:
-     image: maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
-     mem_limit: 700m
-     ports:
-       - "8000:8000"
-     networks:
+  currency-exchange:
+    image: maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8000:8000"
+    depends_on:
+      - naming-server
+    environment: 
+      - EUREKA.CLIENT.SIERVICEURL.DEFAULTZONE:http://naming-server:8761/eureka
+    networks:
       - currency-network
+
+  naming-server:
+    image:  maldini12/msv2-naming-server:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8761:8761"
+    networks:
+      - currency-network
+    
 
 networks:
   currency-network:
