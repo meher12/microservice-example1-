@@ -414,7 +414,7 @@
       ```   
    * Connecting Currency Conversion Microservice & API Gateway with Zipkin  
    2. Creating Container Image for Currency Exchange Microservice :
-     1. 
+      1. 
      \
      ```
       <plugin>
