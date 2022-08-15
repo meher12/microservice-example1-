@@ -386,8 +386,8 @@
          ``` 
          * In browser we can see the result after 10 refresh
 ## 7. Docker with Microservices using Spring Boot and Spring Cloud ##
-###   1. Zipkin :
-         *. Launching Zipkin Container using Docker:
+      1. Zipkin :
+      *. Launching Zipkin Container using Docker:
             ```
                docker run -p 9411:9411 openzipkin/zipkin:latest
             ```
