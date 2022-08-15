@@ -9,7 +9,22 @@ services:
     depends_on:
       - naming-server
     environment: 
-      - EUREKA.CLIENT.SIERVICEURL.DEFAULTZONE:http://naming-server:8761/eureka
+        #eureka.instance.hostname: naming-server
+        eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+        EUREKA.CLIENT.FETCHREGISTRY: "true"
+    networks:
+      - currency-network
+
+  currency-conversion:
+    image: maldini12/msv2-micro-conversion-exchange-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8100:8100"
+    depends_on:
+      - naming-server
+    environment: 
+       eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+       EUREKA.CLIENT.FETCHREGISTRY: "true"
     networks:
       - currency-network
 
@@ -21,7 +36,6 @@ services:
     networks:
       - currency-network
     
-
 networks:
   currency-network:
        

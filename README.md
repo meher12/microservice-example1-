@@ -433,7 +433,7 @@
     ```
       docker run -p 8000:8000 maldini12/msv2-micro-currency-exchange-service:0.0.1-SNAPSHOT
     ```
-   3. Getting Started with Docker Compose - Currency Exchange Microservice
+   3. Getting Started with Docker Compose - Currency Exchange and urrency Conversion Microservice 
    ```
    version: "3.7"
 
