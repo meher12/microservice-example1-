@@ -388,28 +388,6 @@
 ## 7. Docker with Microservices using Spring Boot and Spring Cloud ##
 ###   1. Zipkin :
          *. Launching Zipkin Container using Docker:
- 
             ```
                docker run -p 9411:9411 openzipkin/zipkin:latest
-            ```
-         *. Connecting Currency Exchange Microservice with Zipkin:  \
-            Spring Sleuth: It will give a unique ID to each request through our microservices
-            ```
-            <dependency>
-                  <groupId>org.springframework.cloud</groupId>
-                  <artifactId>spring-cloud-starter-sleuth</artifactId>
-            </dependency>
-               <dependency>
-                  <groupId>org.springframework.cloud</groupId>
-                  <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-               </dependency>
-
-               <dependency>
-                  <groupId>org.springframework.amqp</groupId>
-                  <artifactId>spring-rabbit</artifactId>
-               </dependency>	
-            ```
-            application.properties:
-            ```
-               spring.sleuth.sampler.probability=1.0
             ```
