@@ -8,9 +8,13 @@ services:
       - "8000:8000"
     depends_on:
       - naming-server
+      - rabbitmq
     environment: 
         eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
         spring.zipkin.baseurl: http://zipkin-server:9411/
+        RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+        SPRING_RABBITMQ_HOST: rabbitmq
+        SPRING_ZIPKIN_SENDER_TYPE: rabbit
     networks:
       - currency-network
 
@@ -21,9 +25,13 @@ services:
       - "8100:8100"
     depends_on:
       - naming-server
+      - rabbitmq
     environment: 
        eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
        spring.zipkin.baseurl: http://zipkin-server:9411/
+       RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+       SPRING_RABBITMQ_HOST: rabbitmq
+       SPRING_ZIPKIN_SENDER_TYPE: rabbit
     networks:
       - currency-network
 
@@ -34,9 +42,13 @@ services:
       - "8765:8765"
     depends_on:
       - naming-server
+      - rabbitmq
     environment: 
        eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
        spring.zipkin.baseurl: http://zipkin-server:9411/
+       RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+       SPRING_RABBITMQ_HOST: rabbitmq
+       SPRING_ZIPKIN_SENDER_TYPE: rabbit
     networks:
       - currency-network
 
@@ -45,6 +57,10 @@ services:
     mem_limit: 300m
     ports:
       - "9411:9411"
+    environment:
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      - rabbitmq
     networks:
       - currency-network
     restart: always #Restart if there is a problem starting up
@@ -54,6 +70,15 @@ services:
     mem_limit: 700m
     ports:
       - "8761:8761"
+    networks:
+      - currency-network
+
+  rabbitmq:
+    image: rabbitmq:3.10.7-management
+    mem_limit: 300m
+    ports:
+      - "5672:5672"
+      - "15672:15672"
     networks:
       - currency-network
     

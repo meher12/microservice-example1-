@@ -470,3 +470,14 @@
       ```
    6. Running Zipkin with Docker Compose:
       - Create image and Zipkin service in docker-compose file
+
+   7. Running Zipkin with Docker Compose:
+      - add in all service pom file:
+      ```
+       <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+        </dependency>
+      ```
+      - Create image and Zipkin service in docker-compose file
+   8. Running Zipkin and RabbitMQ with Docker Compose
