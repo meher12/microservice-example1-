@@ -468,3 +468,5 @@
          networks:
             - currency-network
       ```
+   6. Running Zipkin with Docker Compose:
+      - Create image and api-gateway  service in docker-compose file

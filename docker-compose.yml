@@ -10,7 +10,7 @@ services:
       - naming-server
     environment: 
         eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
-        EUREKA.CLIENT.FETCHREGISTRY: "true"
+        spring.zipkin.baseurl: http://zipkin-server:9411/
     networks:
       - currency-network
 
@@ -23,7 +23,7 @@ services:
       - naming-server
     environment: 
        eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
-       EUREKA.CLIENT.FETCHREGISTRY: "true"
+       spring.zipkin.baseurl: http://zipkin-server:9411/
     networks:
       - currency-network
 
@@ -36,9 +36,18 @@ services:
       - naming-server
     environment: 
        eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
-       #EUREKA.CLIENT.FETCHREGISTRY: "true"
+       spring.zipkin.baseurl: http://zipkin-server:9411/
     networks:
       - currency-network
+
+  zipkin-server:
+    image: openzipkin/zipkin:2.23
+    mem_limit: 300m
+    ports:
+      - "9411:9411"
+    networks:
+      - currency-network
+    restart: always #Restart if there is a problem starting up
 
   naming-server:
     image:  maldini12/msv2-naming-server:0.0.1-SNAPSHOT
