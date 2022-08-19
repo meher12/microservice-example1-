@@ -9,7 +9,6 @@ services:
     depends_on:
       - naming-server
     environment: 
-        #eureka.instance.hostname: naming-server
         eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
         EUREKA.CLIENT.FETCHREGISTRY: "true"
     networks:
@@ -25,6 +24,19 @@ services:
     environment: 
        eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
        EUREKA.CLIENT.FETCHREGISTRY: "true"
+    networks:
+      - currency-network
+
+  api-gateway:
+    image: maldini12/msv2-api-gateway:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8765:8765"
+    depends_on:
+      - naming-server
+    environment: 
+       eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+       #EUREKA.CLIENT.FETCHREGISTRY: "true"
     networks:
       - currency-network
 

@@ -451,3 +451,20 @@
    ```
    4. Running Eureka Naming Server with Docker Compose:
       - Create image and naming-server service in docker-compose file 
+
+   5. Running api-gateway with Docker Compose:
+      - Create image and api-gateway  service in docker-compose file
+      ```
+       api-gateway:
+         image: maldini12/msv2-api-gateway:0.0.1-SNAPSHOT
+         mem_limit: 700m
+         ports:
+            - "8765:8765"
+         depends_on:
+            - naming-server
+         environment: 
+            eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+            #EUREKA.CLIENT.FETCHREGISTRY: "true"
+         networks:
+            - currency-network
+      ```
